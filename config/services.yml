@@ -1,0 +1,25 @@
+services:
+    dmzx.topstats.admin.controller:
+        class: dmzx\topstats\controller\admin_controller
+        arguments:
+            - '@config'
+            - '@template'
+            - '@log'
+            - '@user'
+            - '@request'
+            - '@cache'
+    dmzx.topstats.listener:
+        class: dmzx\topstats\event\listener
+        arguments:
+            - '@config'
+            - '@controller.helper'
+            - '@template'
+            - '@user'
+            - '@auth'
+            - '@dbal.conn'
+            - '@cache'
+            - '%core.root_path%'
+            - '%core.php_ext%'
+            - '@?phpbb.collapsiblecategories.operator'
+        tags:
+            - { name: event.listener }                

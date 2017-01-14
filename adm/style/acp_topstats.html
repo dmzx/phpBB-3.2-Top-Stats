@@ -1,0 +1,235 @@
+<!-- INCLUDE overall_header.html -->
+
+<h1>{L_TOP_STATS}</h1>
+
+<p><img src="https://img.shields.io/badge/{{ lang('Version') }}-{{ TS_VERSION }}-green.svg?style=plastic" /></p>
+
+<form id="acp_topstats" method="post" action="{U_ACTION}">
+	<fieldset>
+		<legend>{L_TS_RECENT_SETTINGS}</legend>
+		<dl>
+			<dt><label for="tsrat_enable">{L_TS_RECENT_ENABLE}{L_COLON}</label><br />
+				<span>{L_TS_RECENT_ENABLE_EXPLAIN}</span>
+			</dt>
+			<dd>
+				<label><input type="radio" class="radio" name="tsrat_enable" value="1"<!-- IF TSRAT_ENABLE --> id="tsrat_enable" checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+				<label><input type="radio" class="radio" name="tsrat_enable" value="0"<!-- IF not TSRAT_ENABLE --> id="tsrat_enable" checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label for="tsrat_number">{L_TSRAT_NUMBER}{L_COLON}</label><br />
+				<span>{L_TSRAT_NUMBER_EXPLAIN}</span>
+			</dt>
+			<dd>
+				<input type="text" name="tsrat_number" id="tsrat_number" size="10" value="{TSRAT_NUMBER}" />
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label for="ts_jsscroll">{L_TS_JSSCROLL}{L_COLON}</label><br />
+				<span>{L_TS_JSSCROLL_EXPLAIN}</span>
+			</dt>
+			<dd>
+				<label><input type="radio" class="radio" name="ts_jsscroll" value="1"<!-- IF TS_JSSCROLL --> id="ts_jsscroll" checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+				<label><input type="radio" class="radio" name="ts_jsscroll" value="0"<!-- IF not TS_JSSCROLL --> id="ts_jsscroll" checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label for="tsjss_speed">{L_TS_JSSCROLL_SPEED}{L_COLON}</label><br />
+				<span>{L_TS_JSSCROLL_SPEED_EXPLAIN}</span>
+			</dt>
+			<dd>
+				<input type="text" name="tsjss_speed" id="tsjss_speed" size="10" value="{JSSCROLL_SPEED}" />
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label for="tsjss_interval">{L_TS_JSSCROLL_INTERVAL}{L_COLON}</label><br />
+				<span>{L_TS_JSSCROLL_INTERVAL_EXPLAIN}</span>
+			</dt>
+			<dd>
+				<input type="text" name="tsjss_interval" id="tsjss_interval" size="10" value="{JSSCROLL_INTERVAL}" />
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label for="ts_jsscroll_direction">{L_TS_JSSCROLL_DIRECTION}{L_COLON}</label><br />
+				<span>{L_TS_JSSCROLL_DIRECTION_EXPLAIN}</span>
+			</dt>
+			<dd>
+				<label><input type="radio" class="radio" name="ts_jsscroll_direction" value="1"<!-- IF TS_JSSCROLL_DIRECTION --> id="ts_jsscroll_direction" checked="checked"<!-- ENDIF --> /> {L_TS_JSSCROLL_DIRECTION_UP}</label>
+				<label><input type="radio" class="radio" name="ts_jsscroll_direction" value="0"<!-- IF not TS_JSSCROLL_DIRECTION --> id="ts_jsscroll_direction" checked="checked"<!-- ENDIF --> /> {L_TS_JSSCROLL_DIRECTION_DOWN}</label>
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label for="ts_jsscroll_pause">{L_TS_JSSCROLL_PAUSE}{L_COLON}</label><br />
+				<span>{L_TS_JSSCROLL_PAUSE_EXPLAIN}</span>
+			</dt>
+			<dd>
+				<label><input type="radio" class="radio" name="ts_jsscroll_pause" value="1"<!-- IF TS_JSSCROLL_PAUSE --> id="ts_jsscroll_pause" checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+				<label><input type="radio" class="radio" name="ts_jsscroll_pause" value="0"<!-- IF not TS_JSSCROLL_PAUSE --> id="ts_jsscroll_pause" checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label for="ts_jsscroll_navigation">{L_TS_JSSCROLL_NAVIGATION}{L_COLON}</label><br />
+				<span>{L_TS_JSSCROLL_NAVIGATION_EXPLAIN}</span>
+			</dt>
+			<dd>
+				<label><input type="radio" class="radio" name="ts_jsscroll_navigation" value="1"<!-- IF TS_JSSCROLL_NAVIGATION --> id="ts_jsscroll_navigation" checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+				<label><input type="radio" class="radio" name="ts_jsscroll_navigation" value="0"<!-- IF not TS_JSSCROLL_NAVIGATION --> id="ts_jsscroll_navigation" checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label for="ts_ticker_enable">{L_TS_TICKER_ENABLE}{L_COLON}</label><br />
+				<span>{L_TS_TICKER_ENABLE_EXPLAIN}</span>
+			</dt>
+			<dd>
+				<label><input type="radio" class="radio" name="ts_ticker_enable" value="1"<!-- IF TS_TICKER_ENABLE --> id="ts_ticker_enable" checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+				<label><input type="radio" class="radio" name="ts_ticker_enable" value="0"<!-- IF not TS_TICKER_ENABLE --> id="ts_ticker_enable" checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+			</dd>
+		</dl>
+	</fieldset>
+	<fieldset>
+		<legend>{L_TS_MOSTVIEWED_SETTINGS}</legend>
+		<dl>
+			<dt>
+				<label for="tsmvt_enable">{L_TS_MOSTVIEWED_ENABLE}{L_COLON}</label><br />
+				<span>{L_TS_MOSTVIEWED_ENABLE_EXPLAIN}</span>
+			</dt>
+			<dd>
+				<label><input type="radio" class="radio" name="tsmvt_enable" value="1"<!-- IF TSMVT_ENABLE --> id="tsmvt_enable" checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+				<label><input type="radio" class="radio" name="tsmvt_enable" value="0"<!-- IF not TSMVT_ENABLE --> id="tsmvt_enable" checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label for="tsmvt_number">{L_TS_MOSTVIEWED_NUMBER}{L_COLON}</label><br />
+				<span>{L_TS_MOSTVIEWED_NUMBER_EXPLAIN}</span>
+			</dt>
+			<dd>
+				<input type="text" name="tsmvt_number" id="tsmvt_number" size="10" value="{TSMVT_NUMBER}" />
+			</dd>
+		</dl>
+	</fieldset>
+	<fieldset>
+		<legend>{L_TS_MOSTREPLIED_SETTINGS}</legend>
+		<dl>
+			<dt>
+				<label for="tsmrt_enable">{L_TS_MOSTREPLIED_ENABLE}{L_COLON}</label><br />
+				<span>{L_TS_MOSTREPLIED_ENABLE_EXPLAIN}</span>
+			</dt>
+			<dd>
+				<label><input type="radio" class="radio" name="tsmrt_enable" value="1"<!-- IF TSMRT_ENABLE --> id="tsmrt_enable" checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+				<label><input type="radio" class="radio" name="tsmrt_enable" value="0"<!-- IF not TSMRT_ENABLE --> id="tsmrt_enable" checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label for="tsmrt_number">{L_TS_MOSTVIEWED_NUMBER}{L_COLON}</label><br />
+				<span>{L_TS_MOSTREPLIED_NUMBER_EXPLAIN}</span>
+			</dt>
+			<dd>
+				<input type="text" name="tsmrt_number" id="tsmrt_number" size="10" value="{TSMRT_NUMBER}" />
+			</dd>
+		</dl>
+	</fieldset>
+	<fieldset>
+		<legend>{L_TS_MOSTACTIVEUSER_SETTINGS}</legend>
+		<dl>
+			<dt>
+				<label for="tsmau_enable">{L_TS_MOSTACTIVEUSER_ENABLE}{L_COLON}</label><br />
+				<span>{L_TS_MOSTACTIVEUSER_ENABLE_EXPLAIN}</span>
+			</dt>
+			<dd>
+				<label><input type="radio" class="radio" name="tsmau_enable" value="1"<!-- IF TSMAU_ENABLE --> id="tsmau_enable" checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+				<label><input type="radio" class="radio" name="tsmau_enable" value="0"<!-- IF not TSMAU_ENABLE --> id="tsmau_enable" checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label for="tsmau_number">{L_TS_MOSTACTIVEUSER_NUMBER}{L_COLON}</label><br />
+				<span>{L_TS_MOSTACTIVEUSER_NUMBER_EXPLAIN}</span>
+			</dt>
+			<dd>
+				<input type="text" name="tsmau_number" id="tsmau_number" size="10" value="{TSMAU_NUMBER}" />
+			</dd>
+		</dl>
+	</fieldset>
+	<fieldset>
+		<legend>{L_TS_MOSTACTIVEFORUM_SETTINGS}</legend>
+		<dl>
+			<dt>
+				<label for="tsmaf_enable">{L_TS_MOSTACTIVEFORUM_ENABLE}{L_COLON}</label><br />
+				<span>{L_TS_MOSTACTIVEFORUM_ENABLE_EXPLAIN}</span>
+			</dt>
+			<dd>
+				<label><input type="radio" class="radio" name="tsmaf_enable" value="1"<!-- IF TSMAF_ENABLE --> id="tsmaf_enable" checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+				<label><input type="radio" class="radio" name="tsmaf_enable" value="0"<!-- IF not TSMAF_ENABLE --> id="tsmaf_enable" checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label for="tsmaf_number">{L_TS_MOSTACTIVEFORUM_NUMBER}{L_COLON}</label><br />
+				<span>{L_TS_MOSTACTIVEFORUM_NUMBER_EXPLAIN}</span>
+			</dt>
+			<dd>
+				<input type="text" name="tsmaf_number" id="tsmaf_number" size="10" value="{TSMAF_NUMBER}" />
+			</dd>
+		</dl>
+	</fieldset>
+	<fieldset>
+		<legend>{L_TS_LASTVISITEDBOT_SETTINGS}</legend>
+		<dl>
+			<dt>
+				<label for="tslvb_enable">{L_TS_LASTVISITEDBOT_ENABLE}{L_COLON}</label><br />
+				<span>{L_TS_LASTVISITEDBOT_ENABLE_EXPLAIN}</span>
+			</dt>
+			<dd>
+				<label><input type="radio" class="radio" name="tslvb_enable" value="1"<!-- IF TSLVB_ENABLE --> id="tslvb_enable" checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+				<label><input type="radio" class="radio" name="tslvb_enable" value="0"<!-- IF not TSLVB_ENABLE --> id="tslvb_enable" checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label for="tslvb_number">{L_TS_LASTVISITEDBOT_NUMBER}{L_COLON}</label><br />
+				<span>{L_TS_LASTVISITEDBOT_NUMBER_EXPLAIN}</span>
+			</dt>
+			<dd>
+				<input type="text" name="tslvb_number" id="tslvb_number" size="10" value="{TSLVB_NUMBER}" />
+			</dd>
+		</dl>
+	</fieldset>
+	<fieldset>
+		<legend>{L_TS_LASTREGISTEREDUSER_SETTINGS}</legend>
+		<dl>
+			<dt>
+				<label for="tslru_enable">{L_TS_LASTREGISTEREDUSER_ENABLE}{L_COLON}</label><br />
+				<span>{L_TS_LASTREGISTEREDUSER_ENABLE_EXPLAIN}</span>
+			</dt>
+			<dd>
+				<label><input type="radio" class="radio" name="tslru_enable" value="1"<!-- IF TSLRU_ENABLE --> id="tslru_enable" checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+				<label><input type="radio" class="radio" name="tslru_enable" value="0"<!-- IF not TSLRU_ENABLE --> id="tslru_enable" checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label for="tslru_number">{L_TS_LASTREGISTEREDUSER_NUMBER}{L_COLON}</label><br />
+				<span>{L_TS_LASTREGISTEREDUSER_NUMBER_EXPLAIN}</span>
+			</dt>
+			<dd>
+				<input type="text" name="tslru_number" id="tslru_number" size="10" value="{TSLRU_NUMBER}" />
+			</dd>
+		</dl>
+	</fieldset>
+	<p class="submit-buttons">
+		<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
+		<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+		{S_FORM_TOKEN}
+	</p>
+</form>
+<!-- INCLUDE overall_footer.html -->

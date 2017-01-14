@@ -1,0 +1,105 @@
+<!-- IF S_USER_LOGGED_IN -->
+
+<!-- IF RESENTSTATS_IS_COLLAPSIBLE -->
+<a class="category<!-- IF S_RESENTSTATS_HIDDEN --> hidden-category<!-- ENDIF -->" style="display: none; height: 0"></a>
+<!-- ENDIF -->
+
+<div class="forumlist">
+	<div class="forabg">
+		<div class="inner">
+			<ul class="topiclist">
+				<li class="header">
+					<dl class="row-item">
+						<dt>
+							<div class="list-inner">{TSRAT_NUMBER} {L_RECENT_ACTIVE}</div>
+						</dt>
+						<dd class="topics">{L_POSTS}</dd>
+						<dd class="posts">{L_VIEWS}</dd>
+						<dd class="lastpost">
+							<span>{L_LAST_POST}</span>
+						</dd>
+					</dl>
+				</li>
+			</ul>
+			<!-- IF not S_TS_JSSCROLL and not TS_JSSCROLL_NAVIGATION and not S_TS_TICKER -->
+			<!-- IF RESENTSTATS_IS_COLLAPSIBLE -->
+			<a href="{U_RESENTSTATS_COLLAPSE_URL}" class="collapse-btn collapse-<!-- IF S_RESENTSTATS_HIDDEN -->show<!-- ELSE -->hide<!-- ENDIF -->"
+				data-hidden="{S_RESENTSTATS_HIDDEN}"
+				data-ajax="phpbb_collapse"
+				data-overlay="true"
+				title="{L_COLLAPSIBLE_CATEGORIES_TITLE}">
+			</a>
+			<!-- ENDIF -->
+			<!-- ENDIF -->
+			<!-- IF S_TS_JSSCROLL and TS_JSSCROLL_NAVIGATION and not S_TS_TICKER -->
+			<div class="tsticker responsive-hide">
+				<a href="#" title="{L_PREVIOUS_SCROLL}" id="ticker-previous"><img src="{BOARD_URL}ext/dmzx/topstats/styles/prosilver/theme/images/player_rew.png" alt="{L_PREVIOUS_SCROLL}" height="16" width="16"></a>
+				<a href="#" title="{L_NEXT_SCROLL}" id="ticker-next"><img src="{BOARD_URL}ext/dmzx/topstats/styles/prosilver/theme/images/player_fwd.png" alt="{L_NEXT_SCROLL}" height="16" width="16"></a>
+				<a href="#" title="{L_STOP_SCROLL}" id="stop"><img src="{BOARD_URL}ext/dmzx/topstats/styles/prosilver/theme/images/player_pause.png" alt="{L_STOP_SCROLL}" height="16" width="16"></a>
+				<a href="#" title="{L_START_SCROLL}" id="start"><img src="{BOARD_URL}ext/dmzx/topstats/styles/prosilver/theme/images/player_play.png" alt="{L_START_SCROLL}" height="16" width="16"></a>
+			</div>
+			<!-- ENDIF -->
+			<!-- IF RESENTSTATS_IS_COLLAPSIBLE -->
+			<a href="{U_RESENTSTATS_COLLAPSE_URL}" class="collapse-btn collapse-<!-- IF S_RESENTSTATS_HIDDEN -->show<!-- ELSE -->hide<!-- ENDIF -->"
+				data-hidden="{S_RESENTSTATS_HIDDEN}"
+				data-ajax="phpbb_collapse"
+				data-overlay="true"
+				title="{L_COLLAPSIBLE_CATEGORIES_TITLE}">
+			</a>
+			<!-- ENDIF -->
+			<ul <!-- IF S_TS_JSSCROLL and not S_TS_TICKER -->id="vertical-ticker" <!-- ELSEIF S_TS_TICKER and not S_TS_JSSCROLL -->id="news" <!-- ENDIF -->class="topiclist forums">
+			<!-- IF S_TS_JSSCROLL or not S_TS_TICKER -->
+			 <!-- BEGIN recent_active -->
+			<li class="row">
+				<dl class="starimg row-item">
+					<dt>
+						<div class="list-inner">
+							<a href="{recent_active.U_FIRST_TOPIC}" class="forumtitle">{recent_active.TOPIC_TITLE}</a><br />
+							<i class="fa fa-user"></i>
+							<a style="font-weight:bold; color: #{recent_active.TOPIC_FIRST_POSTER_COLOUR};" href="{recent_active.USERNAME_FIRST}">{recent_active.TOPIC_FIRST_POSTER_NAME}</a>
+							{L_IN} <a href="{recent_active.FORUM_URL}">{recent_active.FORUM_NAME}</a>
+							<i class="fa fa-clock-o"></i> {recent_active.TOPIC_TIME}
+						</div>
+					</dt>
+					<dd class="topics">{recent_active.TOPIC_REPLIES}</dd>
+					<dd class="posts">{recent_active.TOPIC_VIEWS}</dd>
+					<dd class="lastpost">
+						<span>
+							<i class="fa fa-user"></i>
+							<a style="font-weight:bold; color: #{recent_active.TOPIC_LAST_POSTER_COLOUR};" href="{recent_active.USERNAME_LAST}">{recent_active.TOPIC_LAST_POSTER_NAME}</a>
+							<a href="{recent_active.U_LAST_TOPIC}"><i class="icon fa-external-link-square fa-fw icon-lightgray icon-md" aria-hidden="true"></i></a><br />
+							<i class="fa fa-clock-o"></i> {recent_active.TOPIC_LAST_POST_TIME}
+						</span>
+					</dd>
+				</dl>
+			</li>
+			<!-- END recent_active -->
+			<!-- ELSEIF S_TS_TICKER -->
+				<li class="row">
+				<!-- BEGIN recent_active -->
+					<dl class="starimg row-item">
+						<dt>
+							<div class="list-inner">
+								<a href="{recent_active.U_FIRST_TOPIC}" class="forumtitle">{recent_active.TOPIC_TITLE}</a><br />
+								{L_POST_BY_AUTHOR} <a style="font-weight:bold; color: #{recent_active.TOPIC_FIRST_POSTER_COLOUR};" href="{recent_active.USERNAME_FIRST}">{recent_active.TOPIC_FIRST_POSTER_NAME}</a>
+								{L_IN} <a href="{recent_active.FORUM_URL}">{recent_active.FORUM_NAME}</a> {recent_active.TOPIC_TIME}
+							</div>
+						</dt>
+						<dd class="topics">{recent_active.TOPIC_REPLIES}</dd>
+						<dd class="posts">{recent_active.TOPIC_VIEWS}</dd>
+						<dd class="lastpost">
+							<span>
+								{L_POST_BY_AUTHOR} <a style="font-weight:bold; color: #{recent_active.TOPIC_LAST_POSTER_COLOUR};" href="{recent_active.USERNAME_LAST}">{recent_active.TOPIC_LAST_POSTER_NAME}</a>
+								<a href="{recent_active.U_LAST_TOPIC}">{LAST_POST_IMG}</a><br />
+								{recent_active.TOPIC_LAST_POST_TIME}
+							</span>
+						</dd>
+					</dl>
+				<!-- END recent_active -->
+				</li>
+			<!-- ENDIF -->
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- ENDIF -->

@@ -1,0 +1,40 @@
+{
+	"name": "dmzx/topstats",
+	"type": "phpbb-extension",
+	"description": "The Top Stats extension displays some cool stats on your forum index.",
+	"homepage": "http://www.dmzx-web.net",
+	"version": "1.0.0",
+	"time": "2017-01-14",
+	"keywords": ["phpbb", "extension", "topstats"],
+	"license": "GPL-2.0",
+	"authors": [
+		{
+			"name": "dmzx",
+			"homepage": "http://www.dmzx-web.net",
+			"email": "info@dmzx-web.net",
+			"role": "Extension Developer"
+		},
+		{
+			"name": "Stoker",
+			"homepage": "http://www.phpbb3bbcodes.com",
+			"role": "Original MOD author"
+		}
+	],
+	"require": {
+		"php": ">=5.3.3"
+	},
+	"require-dev": {
+		"phpbb/epv": "dev-master"
+	},
+	"extra": {
+		"display-name": "Top Stats",
+		"soft-require": {
+			"phpbb/phpbb": ">=3.2.0,<3.3.0@dev"
+		},
+		"version-check": {
+			"host": "www.dmzx-web.net",
+			"directory": "/versions",
+			"filename": "topstats_32x_version.json"
+		}
+	}
+}

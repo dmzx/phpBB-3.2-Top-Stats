@@ -1,0 +1,32 @@
+<!-- IF (S_TSRAT_ENABLE and S_TS_JSSCROLL) or (S_TSRAT_ENABLE and S_TS_TICKER) -->
+
+<!-- IF S_TS_JSSCROLL and not S_TS_TICKER and SCRIPT_NAME == "index" -->
+
+<!-- INCLUDEJS jquery.totemticker.min.js -->
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#vertical-ticker').totemticker({
+				row_height	:	'41px',
+				max_items	:	3,
+				speed		:	{JSSCROLL_SPEED},
+				interval	:	{JSSCROLL_INTERVAL},
+				<!-- IF TS_JSSCROLL_NAVIGATION -->
+				next		:	'#ticker-next',
+				previous	:	'#ticker-previous',
+				stop		:	'#stop',
+				start		:	'#start',
+				<!-- ENDIF -->
+				mousestop	:	true,
+				direction	:	'<!-- IF TS_JSSCROLL_DIRECTION -->down<!-- ELSE -->up<!-- ENDIF -->'
+	});
+});
+</script>
+<!-- ELSEIF S_TS_TICKER and not S_TS_JSSCROLL -->
+<!-- INCLUDEJS jquery.newsticker.js -->
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#news").newsTicker();
+});
+</script>
+<!-- ENDIF -->
+<!-- ENDIF -->

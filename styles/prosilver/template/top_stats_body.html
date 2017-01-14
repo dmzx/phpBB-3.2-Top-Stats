@@ -1,0 +1,289 @@
+<!-- IF S_USER_LOGGED_IN -->
+<!-- IF S_TSMVT_ENABLE or S_TSMRT_ENABLE -->
+<div class="container">
+	<!-- IF S_TSMVT_ENABLE -->
+	<div class="block-left<!-- IF not S_TSMRT_ENABLE -->-off<!-- ENDIF -->">
+		<!-- IF TOPSTATS_IS_COLLAPSIBLE -->
+		<a class="category<!-- IF S_TOPSTATS_HIDDEN --> hidden-category<!-- ENDIF -->" style="display: none; height: 0"></a>
+		<!-- ENDIF -->
+		<div class="forabg">
+			<div class="inner">
+				<ul class="topiclist">
+					<li class="header">
+						<dl>
+							<dt>{TSMVT_NUMBER} {L_MOST_VIEWED}</dt>
+							<dd>
+								<span class="stats_info responsive-hide">{L_VIEWS}</span>
+							</dd>
+						</dl>
+						<!-- IF TOPSTATS_IS_COLLAPSIBLE -->
+						<a href="{U_TOPSTATS_COLLAPSE_URL}" class="collapse-btn collapse-<!-- IF S_TOPSTATS_HIDDEN -->show<!-- ELSE -->hide<!-- ENDIF -->"
+							data-hidden="{S_TOPSTATS_HIDDEN}"
+							data-ajax="phpbb_collapse"
+							data-overlay="true"
+							title="{L_COLLAPSIBLE_CATEGORIES_TITLE}">
+						</a>
+						<!-- ENDIF -->
+					</li>
+				</ul>
+				<ul class="topiclist forums<!-- IF TOPSTATS_IS_COLLAPSIBLE --> collapsible<!-- ENDIF -->">
+				<!-- BEGIN most_viewed -->
+					<li class="row">
+						<dl>
+							<dt class="stats_title">
+								<a class="stats_topic_title" href="{most_viewed.U_FIRST_TOPIC}">{most_viewed.TOPIC_TITLE}</a><br />
+								<span class="stats_author responsive-hide">
+									{L_POST_BY_AUTHOR} <a style="font-weight:bold; color: #{most_viewed.TOPIC_FIRST_POSTER_COLOUR};" href="{most_viewed.USERNAME_FIRST}">{most_viewed.TOPIC_FIRST_POSTER_NAME}</a>
+									{L_POSTED_ON_DATE} {most_viewed.TOPIC_TIME}
+								</span>
+							</dt>
+							<dd style="border: none">
+								<span class="stats_infos<!-- IF not S_TSMRT_ENABLE -->-off<!-- ENDIF -->">{most_viewed.TOPIC_VIEWS}</span>
+							</dd>
+						</dl>
+					</li>
+				<!-- END most_viewed -->
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- ENDIF -->
+	<!-- IF S_TSMRT_ENABLE -->
+	<div class="block-right<!-- IF not S_TSMVT_ENABLE -->-off<!-- ENDIF -->">
+		<!-- IF TOPSTATS1_IS_COLLAPSIBLE -->
+		<a class="category<!-- IF S_TOPSTATS1_HIDDEN --> hidden-category<!-- ENDIF -->" style="display: none; height: 0"></a>
+		<!-- ENDIF -->
+		<div class="forabg">
+			<div class="inner">
+				<ul class="topiclist">
+					<li class="header">
+						<dl>
+							<dt>{TSMRT_NUMBER} {L_MOST_REPLIED}</dt>
+							<dd>
+								<span class="stats_info responsive-hide">{L_REPLIES}</span>
+							</dd>
+						</dl>
+						<!-- IF TOPSTATS1_IS_COLLAPSIBLE -->
+						<a href="{U_TOPSTATS1_COLLAPSE_URL}" class="collapse-btn collapse-<!-- IF S_TOPSTATS1_HIDDEN -->show<!-- ELSE -->hide<!-- ENDIF -->"
+							data-hidden="{S_TOPSTATS1_HIDDEN}"
+							data-ajax="phpbb_collapse"
+							data-overlay="true"
+							title="{L_COLLAPSIBLE_CATEGORIES_TITLE}">
+						</a>
+						<!-- ENDIF -->
+					</li>
+				</ul>
+				<ul class="topiclist forums<!-- IF TOPSTATS1_IS_COLLAPSIBLE --> collapsible<!-- ENDIF -->">
+					<!-- BEGIN most_replied -->
+					<li class="row">
+						<dl>
+							<dt class="stats_title">
+								<a class="stats_topic_title" href="{most_replied.U_FIRST_TOPIC}">{most_replied.TOPIC_TITLE}</a><br />
+								<span class="stats_author responsive-hide">
+									{L_POST_BY_AUTHOR} <a style="font-weight:bold; color: #{most_replied.TOPIC_FIRST_POSTER_COLOUR};" href="{most_replied.USERNAME_FIRST}">{most_replied.TOPIC_FIRST_POSTER_NAME}</a>
+									{L_POSTED_ON_DATE} {most_replied.TOPIC_TIME}
+								</span>
+							</dt>
+							<dd style="border: none">
+								<span class="stats_infos<!-- IF not S_TSMVT_ENABLE -->-off<!-- ENDIF -->">{most_replied.TOPIC_REPLIES}</span>
+							</dd>
+						</dl>
+					</li>
+					<!-- END most_replied -->
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- ENDIF -->
+</div>
+<!-- ENDIF -->
+<!-- IF S_TSMAU_ENABLE or S_TSMAF_ENABLE -->
+<div class="container">
+	<!-- IF S_TSMAU_ENABLE -->
+	<div class="block-left<!-- IF not S_TSMAF_ENABLE -->-off<!-- ENDIF -->">
+		<!-- IF TOPSTATS2_IS_COLLAPSIBLE -->
+		<a class="category<!-- IF S_TOPSTATS2_HIDDEN --> hidden-category<!-- ENDIF -->" style="display: none; height: 0"></a>
+		<!-- ENDIF -->
+		<div class="forabg">
+			<div class="inner">
+				<ul class="topiclist">
+					<li class="header">
+						<dl>
+							<dt>{TSMAU_NUMBER} {L_MOST_ACTIVE_USERS}</dt>
+							 <dd>
+								<span class="stats_info responsive-hide">{L_POSTS}</span>
+							</dd>
+						</dl>
+						<!-- IF TOPSTATS2_IS_COLLAPSIBLE -->
+						<a href="{U_TOPSTATS2_COLLAPSE_URL}" class="collapse-btn collapse-<!-- IF S_TOPSTATS2_HIDDEN -->show<!-- ELSE -->hide<!-- ENDIF -->"
+							data-hidden="{S_TOPSTATS2_HIDDEN}"
+							data-ajax="phpbb_collapse"
+							data-overlay="true"
+							title="{L_COLLAPSIBLE_CATEGORIES_TITLE}">
+						</a>
+						<!-- ENDIF -->
+					</li>
+				</ul>
+				<ul class="topiclist forums<!-- IF TOPSTATS2_IS_COLLAPSIBLE --> collapsible<!-- ENDIF -->">
+				<!-- BEGIN most_active_users -->
+					<li class="row">
+						<dl>
+							<dt>
+								<span class="stats_name">
+									<a style="color: #{most_active_users.USER_COLOUR};" href="{most_active_users.USER_ID}" title="{L_JOINED_US} {most_active_users.USER_REG}">{most_active_users.USERNAME}</a>
+								</span>
+							</dt>
+							<dd style="border: none">
+								<span class="stats_post_infos">
+									<a href="{most_active_users.USER_POST_SEARCH}">{most_active_users.USER_POSTS}</a>
+									({most_active_users.USER_POST_PERCENT}%)
+								</span>
+							</dd>
+						</dl>
+					</li>
+				<!-- END most_active_users -->
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- ENDIF -->
+	<!-- IF S_TSMAF_ENABLE -->
+	<div class="block-right<!-- IF not S_TSMAU_ENABLE -->-off<!-- ENDIF -->">
+		<!-- IF TOPSTATS3_IS_COLLAPSIBLE -->
+		<a class="category<!-- IF S_TOPSTATS3_HIDDEN --> hidden-category<!-- ENDIF -->" style="display: none; height: 0"></a>
+		<!-- ENDIF -->
+		<div class="forabg">
+			<div class="inner">
+				<ul class="topiclist">
+					<li class="header">
+						<dl>
+							<dt>{TSMAF_NUMBER} {L_MOST_ACTIVE_FORUMS}</dt>
+							<dd>
+								<span class="stats_info responsive-hide">{L_POSTS}</span>
+							</dd>
+						</dl>
+						<!-- IF TOPSTATS3_IS_COLLAPSIBLE -->
+						<a href="{U_TOPSTATS3_COLLAPSE_URL}" class="collapse-btn collapse-<!-- IF S_TOPSTATS3_HIDDEN -->show<!-- ELSE -->hide<!-- ENDIF -->"
+							data-hidden="{S_TOPSTATS3_HIDDEN}"
+							data-ajax="phpbb_collapse"
+							data-overlay="true"
+							title="{L_COLLAPSIBLE_CATEGORIES_TITLE}">
+						</a>
+						<!-- ENDIF -->
+					</li>
+				</ul>
+				<ul class="topiclist forums<!-- IF TOPSTATS3_IS_COLLAPSIBLE --> collapsible<!-- ENDIF -->">
+				<!-- BEGIN most_active_forums -->
+					<li class="row">
+						<dl>
+							<dt>
+								<span class="stats_name">
+									<a href="{most_active_forums.FORUM_URL}">{most_active_forums.FORUM_NAME}</a>
+								</span>
+							</dt>
+							<dd style="border: none">
+								<span class="stats_post_infos">{most_active_forums.FORUM_POSTS} ({most_active_forums.FORUM_POSTS_PERCENT}%)</span>
+							</dd>
+						</dl>
+					</li>
+				<!-- END most_active_forums -->
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- ENDIF -->
+</div>
+<!-- ENDIF -->
+<!-- IF S_TSLVB_ENABLE or S_TSLRU_ENABLE -->
+<div class="container">
+	<!-- IF S_TSLVB_ENABLE -->
+	<div class="block-left<!-- IF not S_TSLRU_ENABLE -->-off<!-- ENDIF -->">
+		<!-- IF TOPSTATS4_IS_COLLAPSIBLE -->
+		<a class="category<!-- IF S_TOPSTATS4_HIDDEN --> hidden-category<!-- ENDIF -->" style="display: none; height: 0"></a>
+		<!-- ENDIF -->
+		<div class="forabg">
+			<div class="inner">
+				<ul class="topiclist">
+					<li class="header">
+						<dl>
+							<dt>{TSLVB_NUMBER} {L_LAST_VISITED_BOTS}</dt>
+							<dd>
+								<span class="stats_info responsive-hide">{L_TIME}</span>
+							</dd>
+						</dl>
+						<!-- IF TOPSTATS4_IS_COLLAPSIBLE -->
+						<a href="{U_TOPSTATS4_COLLAPSE_URL}" class="collapse-btn collapse-<!-- IF S_TOPSTATS4_HIDDEN -->show<!-- ELSE -->hide<!-- ENDIF -->"
+							data-hidden="{S_TOPSTATS4_HIDDEN}"
+							data-ajax="phpbb_collapse"
+							data-overlay="true"
+							title="{L_COLLAPSIBLE_CATEGORIES_TITLE}">
+						</a>
+						<!-- ENDIF -->
+					</li>
+				</ul>
+				<ul class="topiclist forums<!-- IF TOPSTATS4_IS_COLLAPSIBLE --> collapsible<!-- ENDIF -->">
+				<!-- BEGIN last_visited_bots -->
+					<li class="row">
+						<dl>
+							<dt>
+								<span class="stats_name" style="color: #{last_visited_bots.USER_COLOUR};">{last_visited_bots.USERNAME}</span>
+							</dt>
+							<dd style="border: none">
+								<span class="stats_date<!-- IF not S_TSLRU_ENABLE -->-off<!-- ENDIF -->">{last_visited_bots.USER_LAST_VISIT}</span>
+							</dd>
+						</dl>
+					</li>
+				<!-- END last_visited_bots -->
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- ENDIF -->
+	<!-- IF S_TSLRU_ENABLE -->
+	<div class="block-right<!-- IF not S_TSLVB_ENABLE -->-off<!-- ENDIF -->">
+		<!-- IF TOPSTATS5_IS_COLLAPSIBLE -->
+		<a class="category<!-- IF S_TOPSTATS5_HIDDEN --> hidden-category<!-- ENDIF -->" style="display: none; height: 0"></a>
+		<!-- ENDIF -->
+		<div class="forabg">
+			<div class="inner">
+				<ul class="topiclist">
+					<li class="header">
+						<dl>
+							<dt>{TSLRU_NUMBER} {L_LAST_REGISTERED_USERS}</dt>
+							<dd>
+								<span class="stats_info responsive-hide">{L_TIME}</span>
+							</dd>
+						</dl>
+						<!-- IF TOPSTATS5_IS_COLLAPSIBLE -->
+						<a href="{U_TOPSTATS5_COLLAPSE_URL}" class="collapse-btn collapse-<!-- IF S_TOPSTATS5_HIDDEN -->show<!-- ELSE -->hide<!-- ENDIF -->"
+							data-hidden="{S_TOPSTATS5_HIDDEN}"
+							data-ajax="phpbb_collapse"
+							data-overlay="true"
+							title="{L_COLLAPSIBLE_CATEGORIES_TITLE}">
+						</a>
+						<!-- ENDIF -->
+					</li>
+				</ul>
+				<ul class="topiclist forums<!-- IF TOPSTATS5_IS_COLLAPSIBLE --> collapsible<!-- ENDIF -->">
+				<!-- BEGIN last_registered_user -->
+					<li class="row">
+						<dl>
+							<dt>
+								<span class="stats_name">
+									<a style="font-weight:bold; color:#{last_registered_user.USER_COLOUR};" href="{last_registered_user.USER_URL}">{last_registered_user.USERNAME}</a>
+								</span>
+							</dt>
+							<dd style="border: none">
+								<span class="stats_date<!-- IF not S_TSLVB_ENABLE -->-off<!-- ENDIF -->">{last_registered_user.USER_REGISTERED}</span>
+							</dd>
+						</dl>
+					</li>
+				<!-- END last_registered_user -->
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- ENDIF -->
+</div>
+<!-- ENDIF -->
+<!-- ENDIF -->
