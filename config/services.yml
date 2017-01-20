@@ -11,6 +11,7 @@ services:
     dmzx.topstats.listener:
         class: dmzx\topstats\event\listener
         arguments:
+            - '@content.visibility'
             - '@config'
             - '@controller.helper'
             - '@template'

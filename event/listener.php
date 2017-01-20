@@ -11,6 +11,7 @@ namespace dmzx\topstats\event;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
+use phpbb\content_visibility;
 use phpbb\config\config;
 use phpbb\controller\helper;
 use phpbb\template\template;
@@ -22,6 +23,9 @@ use phpbb\collapsiblecategories\operator\operator as operator;
 
 class listener implements EventSubscriberInterface
 {
+	/** @var content_visibility */
+	protected $content_visibility;
+
 	/** @var config */
 	protected $config;
 
@@ -67,6 +71,7 @@ class listener implements EventSubscriberInterface
 	* @param operator			$operator
 	*/
 	public function __construct(
+		content_visibility $content_visibility,
 		config $config,
 		helper $helper,
 		template $template,
@@ -79,6 +84,7 @@ class listener implements EventSubscriberInterface
 		operator $operator = null
 	)
 	{
+		$this->content_visibility = $content_visibility;
 		$this->config 		= $config;
 		$this->helper 		= $helper;
 		$this->template 	= $template;
@@ -176,7 +182,7 @@ class listener implements EventSubscriberInterface
 				LEFT JOIN ' . FORUMS_TABLE . ' f
 					ON (t.forum_id = f.forum_id)
 				WHERE ' . $this->db->sql_in_set('t.forum_id', $flist) . '
-					AND t.topic_moved_id = 0
+					AND ' . $this->content_visibility->get_visibility_sql('topic', 't.') . '
 				ORDER BY t.topic_last_post_time DESC';
 			$result = $this->db->sql_query_limit($sql, $this->config['tsrat_number']);
 
@@ -227,9 +233,10 @@ class listener implements EventSubscriberInterface
 		$enable_viewed_topics = (!empty($this->config['tsmvt_enable']) ? true : false);
 		if ($enable_viewed_topics && sizeof($flist))
 		{
-			$sql = 'SELECT topic_id, forum_id, topic_title, topic_views, topic_time, topic_first_poster_name, topic_first_poster_colour, topic_poster, topic_last_poster_id
-				FROM ' . TOPICS_TABLE . '
+			$sql = 'SELECT t.topic_id, t.forum_id, t.topic_title, t.topic_views, t.topic_time, t.topic_first_poster_name, t.topic_first_poster_colour, t.topic_poster, t.topic_last_poster_id
+				FROM ' . TOPICS_TABLE . ' t
 				WHERE ' . $this->db->sql_in_set('forum_id', $flist) . '
+					AND ' . $this->content_visibility->get_visibility_sql('topic', 't.') . '
 				ORDER BY topic_views DESC';
 			$result = $this->db->sql_query_limit($sql, $this->config['tsmvt_number']);
 
@@ -245,10 +252,13 @@ class listener implements EventSubscriberInterface
 				$view_first_poster = append_sid("{$this->root_path}memberlist.$this->php_ext", 'mode=viewprofile' . '&amp;u=' . $row['topic_poster']);
 				$view_last_poster = append_sid("{$this->root_path}memberlist.$this->php_ext", 'mode=viewprofile' . '&amp;u=' . $row['topic_last_poster_id']);
 
+				$topic_title = censor_text($row['topic_title']);
+				$topic_title = truncate_string($topic_title, 40, 255, false, $this->user->lang['ELLIPSIS']);
+
 				$this->template->assign_block_vars('most_viewed', array(
 					'TOPIC_ID'						=> $row['topic_id'],
 					'FORUM_ID'						=> $row['forum_id'],
-					'TOPIC_TITLE'					=> (utf8_strlen($row['topic_title']) > 41) ? truncate_string($row['topic_title'], 40) . "\xE2\x80\xA6" : $row['topic_title'],
+					'TOPIC_TITLE'					=> $topic_title,
 					'TOPIC_VIEWS'					=> $row['topic_views'],
 					'TOPIC_TIME'					=> $this->user->format_date($row['topic_time']),
 					'TOPIC_FIRST_POSTER_NAME'		=> $row['topic_first_poster_name'],
@@ -288,10 +298,13 @@ class listener implements EventSubscriberInterface
 				$view_first_poster = append_sid("{$this->root_path}memberlist.$this->php_ext", 'mode=viewprofile' . '&amp;u=' . $row['topic_poster']);
 				$view_last_poster = append_sid("{$this->root_path}memberlist.$this->php_ext", 'mode=viewprofile' . '&amp;u=' . $row['topic_last_poster_id']);
 
+				$topic_title = censor_text($row['topic_title']);
+				$topic_title = truncate_string($topic_title, 40, 255, false, $this->user->lang['ELLIPSIS']);
+
 				$this->template->assign_block_vars('most_replied', array(
 					'TOPIC_ID'						=> $row['topic_id'],
 					'FORUM_ID'						=> $row['forum_id'],
-					'TOPIC_TITLE'					=> (utf8_strlen($row['topic_title']) > 41) ? truncate_string($row['topic_title'], 40) . "\xE2\x80\xA6" : $row['topic_title'],
+					'TOPIC_TITLE'					=> $topic_title,
 					'TOPIC_REPLIES'					=> $row['topic_posts_approved'],
 					'TOPIC_TIME'					=> $this->user->format_date($row['topic_time']),
 					'TOPIC_FIRST_POSTER_NAME'		=> $row['topic_first_poster_name'],
@@ -318,8 +331,8 @@ class listener implements EventSubscriberInterface
 				$sql = 'SELECT user_id, username, user_posts, user_colour, user_regdate
 					FROM ' . USERS_TABLE . '
 					WHERE user_inactive_time = 0
-						AND group_id != 6
-						AND user_id != 1
+						AND user_type <> 2
+						AND user_type <> 1
 					ORDER BY user_posts DESC';
 				$result = $this->db->sql_query_limit($sql, $this->config['tsmau_number']);
 
@@ -445,8 +458,8 @@ class listener implements EventSubscriberInterface
 				$sql = 'SELECT user_id, username, user_colour, user_regdate
 					FROM ' . USERS_TABLE . '
 					WHERE user_inactive_time = 0
-						AND group_id != 6
-						AND user_id != 1
+						AND user_type <> 2
+						AND user_type <> 1
 					ORDER BY user_regdate DESC';
 				$result = $this->db->sql_query_limit($sql, $this->config['tslru_number']);
 

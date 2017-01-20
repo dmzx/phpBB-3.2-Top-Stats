@@ -40,5 +40,5 @@ $lang = array_merge($lang, array(
 	'TOP_STATS'					=> 'Top Stats',
 	'TS_CONFIG'					=> 'Configuration',
 	//Log
-	'LOG_TS_SETTINGS'			=> '<strong>Top Stats configugrations changed</strong>',
+	'LOG_TS_SETTINGS'			=> '<strong>Top Stats configuration changed</strong>',
 ));

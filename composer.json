@@ -3,8 +3,8 @@
 	"type": "phpbb-extension",
 	"description": "The Top Stats extension displays some cool stats on your forum index.",
 	"homepage": "http://www.dmzx-web.net",
-	"version": "1.0.0",
-	"time": "2017-01-14",
+	"version": "1.0.1",
+	"time": "2017-01-15",
 	"keywords": ["phpbb", "extension", "topstats"],
 	"license": "GPL-2.0",
 	"authors": [
@@ -29,7 +29,7 @@
 	"extra": {
 		"display-name": "Top Stats",
 		"soft-require": {
-			"phpbb/phpbb": ">=3.2.0,<3.3.0@dev"
+			"phpbb/phpbb": ">=3.2.0,<3.3"
 		},
 		"version-check": {
 			"host": "www.dmzx-web.net",
