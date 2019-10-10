@@ -2,7 +2,7 @@
 /**
 *
 * @package phpBB Extension - Top Stats
-* @copyright (c) 2017 dmzx - http://www.dmzx-web.net
+* @copyright (c) 2017 dmzx - https://www.dmzx-web.net
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
@@ -84,17 +84,17 @@ class listener implements EventSubscriberInterface
 		operator $operator = null
 	)
 	{
-		$this->content_visibility = $content_visibility;
-		$this->config 		= $config;
-		$this->helper 		= $helper;
-		$this->template 	= $template;
-		$this->user 		= $user;
-		$this->auth 		= $auth;
-		$this->db 			= $db;
-		$this->cache 		= $cache;
-		$this->root_path 	= $root_path;
-		$this->php_ext 		= $php_ext;
-		$this->operator 	= $operator;
+		$this->content_visibility 	= $content_visibility;
+		$this->config 				= $config;
+		$this->helper 				= $helper;
+		$this->template 			= $template;
+		$this->user 				= $user;
+		$this->auth 				= $auth;
+		$this->db 					= $db;
+		$this->cache 				= $cache;
+		$this->root_path 			= $root_path;
+		$this->php_ext 				= $php_ext;
+		$this->operator 			= $operator;
 	}
 
 	static public function getSubscribedEvents()
@@ -121,51 +121,51 @@ class listener implements EventSubscriberInterface
 		{
 			$fid = 'fid_458'; // can be any unique string to identify your extension's collapsible element
 			$this->template->assign_vars(array(
-				'TOPSTATS_IS_COLLAPSIBLE'	=> true,
-				'S_TOPSTATS_HIDDEN' => in_array($fid, $this->operator->get_user_categories()),
-				'U_TOPSTATS_COLLAPSE_URL' => $this->helper->route('phpbb_collapsiblecategories_main_controller', array('forum_id' => $fid, 'hash' => generate_link_hash("collapsible_$fid")))
+				'TOPSTATS_IS_COLLAPSIBLE'		=> true,
+				'S_TOPSTATS_HIDDEN' 			=> in_array($fid, $this->operator->get_user_categories()),
+				'U_TOPSTATS_COLLAPSE_URL' 		=> $this->helper->route('phpbb_collapsiblecategories_main_controller', array('forum_id' => $fid, 'hash' => generate_link_hash("collapsible_$fid")))
 			));
 
 			$fid = 'fid_460'; // can be any unique string to identify your extension's collapsible element
 			$this->template->assign_vars(array(
-				'TOPSTATS1_IS_COLLAPSIBLE'	=> true,
-				'S_TOPSTATS1_HIDDEN' => in_array($fid, $this->operator->get_user_categories()),
-				'U_TOPSTATS1_COLLAPSE_URL' => $this->helper->route('phpbb_collapsiblecategories_main_controller', array('forum_id' => $fid,	'hash' => generate_link_hash("collapsible_$fid")))
+				'TOPSTATS1_IS_COLLAPSIBLE'		=> true,
+				'S_TOPSTATS1_HIDDEN' 			=> in_array($fid, $this->operator->get_user_categories()),
+				'U_TOPSTATS1_COLLAPSE_URL' 		=> $this->helper->route('phpbb_collapsiblecategories_main_controller', array('forum_id' => $fid,	'hash' => generate_link_hash("collapsible_$fid")))
 			));
 
 			$fid = 'fid_461'; // can be any unique string to identify your extension's collapsible element
 			$this->template->assign_vars(array(
-				'TOPSTATS2_IS_COLLAPSIBLE'	=> true,
-				'S_TOPSTATS2_HIDDEN' => in_array($fid, $this->operator->get_user_categories()),
-				'U_TOPSTATS2_COLLAPSE_URL' => $this->helper->route('phpbb_collapsiblecategories_main_controller', array('forum_id' => $fid, 'hash' => generate_link_hash("collapsible_$fid")))
+				'TOPSTATS2_IS_COLLAPSIBLE'		=> true,
+				'S_TOPSTATS2_HIDDEN' 			=> in_array($fid, $this->operator->get_user_categories()),
+				'U_TOPSTATS2_COLLAPSE_URL' 		=> $this->helper->route('phpbb_collapsiblecategories_main_controller', array('forum_id' => $fid, 'hash' => generate_link_hash("collapsible_$fid")))
 			));
 
 			$fid = 'fid_462'; // can be any unique string to identify your extension's collapsible element
 			$this->template->assign_vars(array(
-				'TOPSTATS3_IS_COLLAPSIBLE'	=> true,
-				'S_TOPSTATS3_HIDDEN' => in_array($fid, $this->operator->get_user_categories()),
-				'U_TOPSTATS3_COLLAPSE_URL' => $this->helper->route('phpbb_collapsiblecategories_main_controller', array('forum_id' => $fid, 'hash' => generate_link_hash("collapsible_$fid")))
+				'TOPSTATS3_IS_COLLAPSIBLE'		=> true,
+				'S_TOPSTATS3_HIDDEN' 			=> in_array($fid, $this->operator->get_user_categories()),
+				'U_TOPSTATS3_COLLAPSE_URL' 		=> $this->helper->route('phpbb_collapsiblecategories_main_controller', array('forum_id' => $fid, 'hash' => generate_link_hash("collapsible_$fid")))
 			));
 
 			$fid = 'fid_463'; // can be any unique string to identify your extension's collapsible element
 			$this->template->assign_vars(array(
-				'TOPSTATS4_IS_COLLAPSIBLE'	=> true,
-				'S_TOPSTATS4_HIDDEN' => in_array($fid, $this->operator->get_user_categories()),
-				'U_TOPSTATS4_COLLAPSE_URL' => $this->helper->route('phpbb_collapsiblecategories_main_controller', array('forum_id' => $fid, 'hash' => generate_link_hash("collapsible_$fid")))
+				'TOPSTATS4_IS_COLLAPSIBLE'		=> true,
+				'S_TOPSTATS4_HIDDEN' 			=> in_array($fid, $this->operator->get_user_categories()),
+				'U_TOPSTATS4_COLLAPSE_URL' 		=> $this->helper->route('phpbb_collapsiblecategories_main_controller', array('forum_id' => $fid, 'hash' => generate_link_hash("collapsible_$fid")))
 			));
 
 			$fid = 'fid_464'; // can be any unique string to identify your extension's collapsible element
 			$this->template->assign_vars(array(
-				'TOPSTATS5_IS_COLLAPSIBLE'	=> true,
-				'S_TOPSTATS5_HIDDEN' => in_array($fid, $this->operator->get_user_categories()),
-				'U_TOPSTATS5_COLLAPSE_URL' => $this->helper->route('phpbb_collapsiblecategories_main_controller', array('forum_id' => $fid, 'hash' => generate_link_hash("collapsible_$fid")))
+				'TOPSTATS5_IS_COLLAPSIBLE'		=> true,
+				'S_TOPSTATS5_HIDDEN' 			=> in_array($fid, $this->operator->get_user_categories()),
+				'U_TOPSTATS5_COLLAPSE_URL' 		=> $this->helper->route('phpbb_collapsiblecategories_main_controller', array('forum_id' => $fid, 'hash' => generate_link_hash("collapsible_$fid")))
 			));
 
 			$fid = '459'; // can be any unique string to identify your extension's collapsible element
 			$this->template->assign_vars(array(
 				'RESENTSTATS_IS_COLLAPSIBLE'	=> true,
-				'S_RESENTSTATS_HIDDEN' => in_array($fid, $this->operator->get_user_categories()),
-				'U_RESENTSTATS_COLLAPSE_URL' => $this->helper->route('phpbb_collapsiblecategories_main_controller', array('forum_id' => $fid, 'hash' => generate_link_hash("collapsible_$fid")))
+				'S_RESENTSTATS_HIDDEN' 			=> in_array($fid, $this->operator->get_user_categories()),
+				'U_RESENTSTATS_COLLAPSE_URL' 	=> $this->helper->route('phpbb_collapsiblecategories_main_controller', array('forum_id' => $fid, 'hash' => generate_link_hash("collapsible_$fid")))
 			));
 		}
 

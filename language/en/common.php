@@ -2,7 +2,7 @@
 /**
 *
 * @package phpBB Extension - Top Stats
-* @copyright (c) 2017 dmzx - http://www.dmzx-web.net
+* @copyright (c) 2017 dmzx - https://www.dmzx-web.net
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
@@ -37,18 +37,22 @@ if (empty($lang) || !is_array($lang))
 //
 
 $lang = array_merge($lang, array(
-	'MOST_VIEWED'				=> 'Most viewed topics',
-	'MOST_REPLIED'				=> 'Most replied topics',
-	'NEWEST_TOPICS'				=> 'Latest Topics',
-	'NEWEST_POSTS'				=> 'Latest Posts',
-	'RECENT_ACTIVE'				=> 'Recent Active Topics',
-	'MOST_ACTIVE_USERS'			=> 'Most active users',
-	'JOINED_US'					=> 'Joined us',
-	'MOST_ACTIVE_FORUMS'		=> 'Most active forums',
-	'PREVIOUS_SCROLL'			=> 'Previous',
-	'NEXT_SCROLL'				=> 'Next',
-	'START_SCROLL'				=> 'Start',
-	'STOP_SCROLL'				=> 'Stop',
-	'LAST_REGISTERED_USERS'		=> 'Last registered users',
-	'LAST_VISITED_BOTS'			=> 'Last visited bots',
+	'MOST_VIEWED'					=> 'Most viewed topics',
+	'MOST_REPLIED'					=> 'Most replied topics',
+	'NEWEST_TOPICS'					=> 'Latest Topics',
+	'NEWEST_POSTS'					=> 'Latest Posts',
+	'RECENT_ACTIVE'					=> 'Recent Active Topics',
+	'MOST_ACTIVE_USERS'				=> 'Most active users',
+	'JOINED_US'						=> 'Joined us',
+	'MOST_ACTIVE_FORUMS'			=> 'Most active forums',
+	'PREVIOUS_SCROLL'				=> 'Previous',
+	'NEXT_SCROLL'					=> 'Next',
+	'START_SCROLL'					=> 'Start',
+	'STOP_SCROLL'					=> 'Stop',
+	'LAST_REGISTERED_USERS'			=> 'Last registered users',
+	'LAST_VISITED_BOTS'				=> 'Last visited bots',
+	'TOPSTATS_COLLAPSE_TITLE'			=> [
+		0 => 'Hide',
+		1 => 'Show',
+	],
 ));
