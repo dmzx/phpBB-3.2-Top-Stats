@@ -37,20 +37,20 @@ if (empty($lang) || !is_array($lang))
 //
 
 $lang = array_merge($lang, array(
+	'RECENT_ACTIVE'				=> 'Recent Active Topics',
 	'MOST_VIEWED'					=> 'Most viewed topics',
-	'MOST_REPLIED'					=> 'Most replied topics',
-	'NEWEST_TOPICS'					=> 'Latest Topics',
-	'NEWEST_POSTS'					=> 'Latest Posts',
-	'RECENT_ACTIVE'					=> 'Recent Active Topics',
+	'MOST_REPLIED'				=> 'Most replied topics',
 	'MOST_ACTIVE_USERS'				=> 'Most active users',
-	'JOINED_US'						=> 'Joined us',
 	'MOST_ACTIVE_FORUMS'			=> 'Most active forums',
+	'LAST_VISITED_BOTS'				=> 'Last visited bots',
+	'LAST_REGISTERED_USERS'			=> 'Last registered users',
+	'NEWEST_TOPICS'				=> 'Latest Topics',
+	'NEWEST_POSTS'				=> 'Latest Posts',
+	'JOINED_US'					=> 'Joined us',
 	'PREVIOUS_SCROLL'				=> 'Previous',
 	'NEXT_SCROLL'					=> 'Next',
-	'START_SCROLL'					=> 'Start',
+	'START_SCROLL'				=> 'Start',
 	'STOP_SCROLL'					=> 'Stop',
-	'LAST_REGISTERED_USERS'			=> 'Last registered users',
-	'LAST_VISITED_BOTS'				=> 'Last visited bots',
 	'TOPSTATS_COLLAPSE_TITLE'			=> [
 		0 => 'Hide',
 		1 => 'Show',
